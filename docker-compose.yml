@@ -1,0 +1,114 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    container_name: transitflow-postgres
+    environment:
+      POSTGRES_DB: transitflow
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - transitflow-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # MongoDB
+  mongodb:
+    image: mongo:7
+    container_name: transitflow-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - transitflow-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis
+  redis:
+    image: redis:7
+    container_name: transitflow-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - transitflow-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API (Node.js) - Placeholder, to be implemented
+  # backend:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   container_name: transitflow-backend
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     NODE_ENV: development
+  #     POSTGRES_HOST: postgres
+  #     POSTGRES_PORT: 5432
+  #     POSTGRES_DB: transitflow
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: postgres
+  #     MONGODB_URI: mongodb://mongodb:27017/transitflow
+  #     REDIS_HOST: redis
+  #     REDIS_PORT: 6379
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #     mongodb:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./backend:/app
+  #     - /app/node_modules
+  #   networks:
+  #     - transitflow-network
+
+  # ML Service (Python) - Placeholder, to be implemented
+  # ml-service:
+  #   build:
+  #     context: ./ml
+  #     dockerfile: Dockerfile
+  #   container_name: transitflow-ml
+  #   ports:
+  #     - "5000:5000"
+  #   environment:
+  #     POSTGRES_URI: postgresql://postgres:postgres@postgres:5432/transitflow
+  #     MODEL_PATH: /models
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./ml:/app
+  #     - ./models:/models
+  #   networks:
+  #     - transitflow-network
+
+volumes:
+  postgres_data:
+  mongo_data:
+  redis_data:
+
+networks:
+  transitflow-network:
+    driver: bridge
