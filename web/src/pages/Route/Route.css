@@ -1,0 +1,70 @@
+.route-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.route-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.map-container {
+  width: 100%;
+  height: calc(100vh - 200px);
+  min-height: 500px;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.map-placeholder p {
+  font-size: 1.5rem;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.map-info {
+  font-size: 1rem !important;
+  color: #666 !important;
+  margin-bottom: 2rem !important;
+}
+
+.map-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 2rem;
+}
+
+.map-feature {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-feature h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #667eea;
+}
+
+.map-feature p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
