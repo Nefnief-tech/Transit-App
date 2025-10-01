@@ -85,9 +85,9 @@ npm install
 Copy `.env.example` to `.env`:
 
 ```env
-REACT_APP_API_BASE_URL=http://localhost:3000/api
-REACT_APP_MAPBOX_API_KEY=your_mapbox_key
-REACT_APP_ENVIRONMENT=development
+VITE_API_BASE_URL=http://localhost:3000/api
+VITE_MAPBOX_API_KEY=your_mapbox_key
+VITE_ENVIRONMENT=development
 ```
 
 ### Development
@@ -171,8 +171,8 @@ netlify deploy --prod --dir=build
 ### Environment Variables
 
 Set environment variables in your hosting platform:
-- `REACT_APP_API_BASE_URL`
-- `REACT_APP_MAPBOX_API_KEY`
+- `VITE_API_BASE_URL`
+- `VITE_MAPBOX_API_KEY`
 
 ## Performance
 

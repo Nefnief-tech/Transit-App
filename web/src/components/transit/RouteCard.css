@@ -1,0 +1,110 @@
+.route-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.route-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.route-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.route-origin,
+.route-destination {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.route-arrow {
+  color: #667eea;
+  font-size: 1.2rem;
+}
+
+.route-duration {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.route-details {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.route-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.detail-value {
+  font-weight: 600;
+}
+
+.route-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.route-action-button {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.route-action-button:not(.secondary) {
+  background-color: #667eea;
+  color: white;
+}
+
+.route-action-button:not(.secondary):hover {
+  background-color: #5568d3;
+}
+
+.route-action-button.secondary {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.route-action-button.secondary:hover {
+  background-color: #e5e7eb;
+}
+
+@media (max-width: 768px) {
+  .route-details {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .route-actions {
+    flex-direction: column;
+  }
+}
