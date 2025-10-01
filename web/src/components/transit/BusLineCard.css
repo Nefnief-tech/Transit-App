@@ -1,4 +1,4 @@
-.route-card {
+.bus-line-card {
   background: #000000;
   border: 1px solid #333333;
   border-radius: 12px;
@@ -8,76 +8,70 @@
   font-family: 'Roboto Mono', monospace;
 }
 
-.route-card:hover {
+.bus-line-card:hover {
   border-color: #FF0000;
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 }
 
-.route-header {
+.bus-line-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #333333;
 }
 
-.route-info {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+.bus-line-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FF0000;
+  min-width: 80px;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border: 2px solid #FF0000;
+  border-radius: 8px;
+  background: rgba(255, 0, 0, 0.1);
 }
 
-.route-origin,
-.route-destination {
-  font-weight: 600;
+.bus-line-name {
   font-size: 1.1rem;
+  font-weight: 600;
   color: #FFFFFF;
-}
-
-.route-arrow {
-  color: #FF0000;
-  font-size: 1.2rem;
-}
-
-.route-duration {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #FF0000;
-}
-
-.route-details {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 1rem;
-}
-
-.route-detail-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.detail-label {
-  font-size: 0.875rem;
-  color: #999999;
+  flex: 1;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.detail-value {
+.bus-line-direction,
+.bus-line-destination {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.direction-label,
+.destination-label {
+  font-size: 0.875rem;
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 100px;
+}
+
+.direction-value,
+.destination-value {
   font-weight: 600;
   color: #CCCCCC;
 }
 
-.route-actions {
+.bus-line-actions {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
-.route-action-button {
+.bus-line-action-button {
   flex: 1;
   padding: 0.75rem;
   border: 1px solid #FF0000;
@@ -91,33 +85,37 @@
   transition: all 0.3s;
 }
 
-.route-action-button:not(.secondary) {
+.bus-line-action-button:not(.secondary) {
   background-color: #FF0000;
   color: #000000;
 }
 
-.route-action-button:not(.secondary):hover {
+.bus-line-action-button:not(.secondary):hover {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
-.route-action-button.secondary {
+.bus-line-action-button.secondary {
   background-color: transparent;
   color: #FFFFFF;
   border-color: #333333;
 }
 
-.route-action-button.secondary:hover {
+.bus-line-action-button.secondary:hover {
   border-color: #FF0000;
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
-  .route-details {
-    flex-direction: column;
-    gap: 0.5rem;
+  .bus-line-number {
+    font-size: 1.5rem;
+    min-width: 60px;
   }
 
-  .route-actions {
+  .bus-line-name {
+    font-size: 1rem;
+  }
+
+  .bus-line-actions {
     flex-direction: column;
   }
 }
