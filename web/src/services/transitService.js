@@ -44,6 +44,17 @@ export const transitService = {
       throw error
     }
   },
+
+  // Search for bus lines by route number
+  searchBusLines: async (routeNo) => {
+    try {
+      const response = await apiClient.get(`/transit/bus-lines/${routeNo}`)
+      return response.data
+    } catch (error) {
+      console.error('Error searching bus lines:', error)
+      throw error
+    }
+  },
 }
 
 export default transitService

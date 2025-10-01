@@ -64,3 +64,20 @@ export const getVehicles = async (req, res) => {
     })
   }
 }
+
+// Get bus lines by route number
+export const getBusLines = async (req, res) => {
+  try {
+    const { routeNo } = req.params
+    const busLines = await transitService.getBusLines(routeNo)
+    res.json({
+      success: true,
+      data: busLines
+    })
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message
+    })
+  }
+}

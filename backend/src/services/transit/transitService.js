@@ -1,3 +1,11 @@
+import axios from 'axios'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const TRANSLINK_API_KEY = process.env.TRANSLINK_API_KEY
+const TRANSLINK_BASE_URL = 'https://api.translink.ca/rttiapi/v1'
+
 // Mock data for transit services
 const mockRoutes = [
   { id: 1, name: 'Expo Line', type: 'skytrain', color: '#0098D8' },
@@ -56,6 +64,58 @@ const transitService = {
   getVehicles: async () => {
     await new Promise(resolve => setTimeout(resolve, 100))
     return mockVehicles
+  },
+
+  getBusLines: async (routeNo) => {
+    try {
+      // If no API key, return mock data
+      if (!TRANSLINK_API_KEY) {
+        console.log('TransLink API key not found, using mock data')
+        return [
+          {
+            RouteNo: routeNo,
+            RouteName: `Bus Route ${routeNo}`,
+            Direction: 'EAST',
+            Destination: 'UBC'
+          },
+          {
+            RouteNo: routeNo,
+            RouteName: `Bus Route ${routeNo}`,
+            Direction: 'WEST',
+            Destination: 'Commercial'
+          }
+        ]
+      }
+
+      // Call TransLink API
+      const response = await axios.get(`${TRANSLINK_BASE_URL}/routes/${routeNo}`, {
+        params: {
+          apikey: TRANSLINK_API_KEY
+        },
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+
+      return response.data
+    } catch (error) {
+      console.error('TransLink API error:', error.message)
+      // Return mock data as fallback
+      return [
+        {
+          RouteNo: routeNo,
+          RouteName: `Bus Route ${routeNo}`,
+          Direction: 'EAST',
+          Destination: 'UBC'
+        },
+        {
+          RouteNo: routeNo,
+          RouteName: `Bus Route ${routeNo}`,
+          Direction: 'WEST',
+          Destination: 'Commercial'
+        }
+      ]
+    }
   }
 }
 

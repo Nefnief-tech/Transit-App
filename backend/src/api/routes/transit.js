@@ -8,5 +8,6 @@ router.get('/routes', transitController.getRoutes)
 router.get('/stops', transitController.getStops)
 router.get('/arrivals/:stopId', transitController.getArrivals)
 router.get('/vehicles', transitController.getVehicles)
+router.get('/bus-lines/:routeNo', transitController.getBusLines)
 
 export default router
