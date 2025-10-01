@@ -2,12 +2,20 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
+  background: #000000;
+  color: #FFFFFF;
+  font-family: 'Roboto Mono', monospace;
+  min-height: calc(100vh - 60px);
 }
 
 .about-page h1 {
-  font-size: 2.5rem;
+  font-size: 32px;
   margin-bottom: 2rem;
   text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-weight: 700;
 }
 
 .about-section {
@@ -15,15 +23,19 @@
 }
 
 .about-section h2 {
-  font-size: 1.8rem;
+  font-size: 24px;
   margin-bottom: 1rem;
-  color: #667eea;
+  color: #FF0000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .about-section p {
-  line-height: 1.6;
-  color: #444;
+  line-height: 1.8;
+  color: #CCCCCC;
   margin-bottom: 1rem;
+  font-size: 14px;
 }
 
 .about-section ul {
@@ -33,7 +45,13 @@
 
 .about-section ul li {
   padding: 0.5rem 0;
-  line-height: 1.6;
+  line-height: 1.8;
+  color: #CCCCCC;
+  font-size: 14px;
+}
+
+.about-section ul li strong {
+  color: #FF0000;
 }
 
 .features-list {
@@ -45,35 +63,70 @@
 
 .feature-item {
   padding: 1.5rem;
-  background: #f9fafb;
-  border-radius: 8px;
-  border-left: 4px solid #667eea;
+  background: #000000;
+  border: 1px solid #333333;
+  border-left: 3px solid #FF0000;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  border-color: #FF0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 }
 
 .feature-item h3 {
-  font-size: 1.2rem;
+  font-size: 16px;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .feature-item p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 14px;
+  color: #CCCCCC;
 }
 
 .faq-item {
   margin-bottom: 1.5rem;
   padding: 1rem;
-  background: #f9fafb;
-  border-radius: 8px;
+  background: #000000;
+  border: 1px solid #333333;
 }
 
 .faq-item h3 {
-  font-size: 1.1rem;
+  font-size: 16px;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #FF0000;
+  letter-spacing: 1px;
+  font-weight: 700;
 }
 
 .faq-item p {
   margin: 0;
+  color: #CCCCCC;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .about-page h1 {
+    font-size: 24px;
+  }
+
+  .about-section h2 {
+    font-size: 20px;
+  }
+
+  .feature-item h3,
+  .faq-item h3 {
+    font-size: 14px;
+  }
+
+  .about-section p,
+  .feature-item p,
+  .faq-item p {
+    font-size: 12px;
+  }
 }
