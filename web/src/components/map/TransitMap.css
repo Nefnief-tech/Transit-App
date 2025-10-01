@@ -1,0 +1,172 @@
+.transit-map-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #000000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.transit-map-wrapper.fullscreen {
+  border-radius: 0;
+}
+
+/* Stop Markers - Nothing OS inspired */
+.stop-marker {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.stop-marker:hover {
+  transform: scale(1.2);
+}
+
+.stop-marker-icon {
+  width: 12px;
+  height: 12px;
+  background: #FF0000;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+/* Vehicle Markers */
+.vehicle-marker {
+  cursor: pointer;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.vehicle-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.vehicle-icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #FF0000;
+  border: 2px solid #FFFFFF;
+  border-radius: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+.vehicle-marker.bus .vehicle-icon {
+  border-radius: 2px;
+}
+
+.vehicle-marker.skytrain .vehicle-icon {
+  border-radius: 4px;
+}
+
+/* Map Popups - Nothing OS inspired */
+.mapboxgl-popup-content {
+  background: #000000 !important;
+  border: 1px solid #FF0000 !important;
+  border-radius: 4px !important;
+  padding: 12px !important;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4) !important;
+  font-family: 'Roboto Mono', monospace !important;
+}
+
+.mapboxgl-popup-close-button {
+  color: #FFFFFF !important;
+  font-size: 20px !important;
+  padding: 0 8px !important;
+}
+
+.mapboxgl-popup-close-button:hover {
+  background: #FF0000 !important;
+  color: #000000 !important;
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: #000000 !important;
+}
+
+.map-popup h3 {
+  margin: 0 0 8px 0;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.map-popup p {
+  margin: 4px 0;
+  color: #CCCCCC;
+  font-size: 12px;
+}
+
+.stop-type {
+  color: #FF0000 !important;
+  font-weight: 600;
+  font-size: 11px !important;
+}
+
+.arrivals {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #333333;
+}
+
+.arrival-time {
+  color: #FFFFFF !important;
+  font-size: 11px !important;
+}
+
+.vehicle-status {
+  color: #00FF00 !important;
+  font-weight: 600;
+}
+
+.vehicle-info {
+  color: #CCCCCC !important;
+  font-size: 11px !important;
+}
+
+/* Map Controls - Nothing OS styling */
+.mapboxgl-ctrl-group {
+  background: #000000 !important;
+  border: 1px solid #FF0000 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3) !important;
+}
+
+.mapboxgl-ctrl-group button {
+  background: #000000 !important;
+  border-bottom: 1px solid #333333 !important;
+}
+
+.mapboxgl-ctrl-group button:hover {
+  background: #FF0000 !important;
+}
+
+.mapboxgl-ctrl-icon {
+  filter: invert(1);
+}
+
+.mapboxgl-ctrl-group button:hover .mapboxgl-ctrl-icon {
+  filter: invert(0);
+}
